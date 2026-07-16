@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>バス旅行クイズ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ページ1：名前入力 -->
+<div id="page-start" class="page active">
+  <h1>バス旅行クイズ</h1>
+  <p>お名前を入力してスタートしてください</p>
+  <input id="username" type="text" placeholder="例：佐藤">
+  <button onclick="startQuiz()">スタート</button>
+</div>
+
+<!-- ページ2：クイズ -->
+<div id="page-quiz" class="page">
+  <h2 id="question-title"></h2>
+  <div id="choices"></div>
+  <button id="next-btn" onclick="nextQuestion()">次へ</button>
+</div>
+
+<!-- ページ3：終了画面 -->
+<div id="page-finish" class="page">
+  <h2>回答ありがとうございました！</h2>
+  <p>結果は帰りのバスで発表します。</p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
