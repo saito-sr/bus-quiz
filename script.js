@@ -62,6 +62,20 @@ function nextQuestion() {
   }
 }
 
+function startQuiz() {
+  username = document.getElementById("username").value.trim();
+  if (!username) {
+    alert("名前を入力してください");
+    return;
+  }
+
+  current = 0;      // ★ 追加
+  answers = [];     // ★ 追加（重要）
+
+  showPage("page-quiz");
+  showQuestion();
+}
+
 function finishQuiz() {
   showPage("page-finish");
 
