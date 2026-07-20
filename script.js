@@ -87,7 +87,7 @@ function finishQuiz() {
 
   fetch(API_URL, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    // ← headers を消す
     body: JSON.stringify({
       name: username,
       answers: answers
