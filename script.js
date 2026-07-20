@@ -65,7 +65,8 @@ function nextQuestion() {
 function finishQuiz() {
   showPage("page-finish");
 
-  // ★ Google Apps Script に送信
+  console.log("answers:", answers);  // ★ 追加（配列かどうか確認）
+
   fetch(API_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
