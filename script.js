@@ -1,5 +1,5 @@
 // ★ Google Apps Script の Web API URL を貼る
-const API_URL = "https://script.google.com/macros/s/AKfycbxPcfF58pk3mQuC-u5JoRVLomDM1i0r6lbqGwCJjAuJkEfW0tZtsw4mLVBdQXQQecRwUw/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbyO9-HobVQiujbgzGW6XhGg4vnbkewZBqni2sQ2JnuIAyXRaWBqNNEFKfogqFcKP1Fe/exec";
 
 let username = "";
 let current = 0;
