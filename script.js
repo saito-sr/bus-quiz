@@ -26,6 +26,10 @@ function startQuiz() {
     alert("名前を入力してください");
     return;
   }
+
+  current = 0;      // ★ 重要
+  answers = [];     // ★ 重要
+
   showPage("page-quiz");
   showQuestion();
 }
