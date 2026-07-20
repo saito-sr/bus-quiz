@@ -77,9 +77,9 @@ function startQuiz() {
 }
 
 function finishQuiz() {
-  showPage("page-finish");
+  console.log("finishQuiz called");  // ★追加
 
-  console.log("answers:", answers);  // ★ 追加（配列かどうか確認）
+  showPage("page-finish");
 
   fetch(API_URL, {
     method: "POST",
