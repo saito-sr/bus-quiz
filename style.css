@@ -55,6 +55,7 @@ button {
 }
 
 .question-img {
+  margin-top: 20px;
   width: 100%;
   max-width: 300px;
   clip-path: circle(50%);
