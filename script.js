@@ -7,11 +7,11 @@ let answers = [];
 
 // ★ クイズデータ
 const quiz = [
-  { q: "日本で一番高い山は？", c: ["富士山", "北岳", "槍ヶ岳"], img: "images/sample-1.jpg" },
-  { q: "寿司ネタで使われる「マグロ」の英語は？", c: ["Tuna", "Salmon", "Mackerel"], img: "images/sample-2.jpg" },
-  { q: "千葉県の県庁所在地は？", c: ["千葉市", "船橋市", "柏市"], img: "images/sample-3.jpg" },
-  { q: "サッカーは1チーム何人？", c: ["11人", "9人", "7人"] },
-  { q: "地球は何番目の惑星？", c: ["3番目", "2番目", "4番目"] },
+  { q: "日本で一番高い山は？", c: ["富士山", "北岳", "槍ヶ岳"], img: "images/sample-1.jpg" , correct: 0 },
+  { q: "寿司ネタで使われる「マグロ」の英語は？", c: ["Tuna", "Salmon", "Mackerel"], img: "images/sample-2.jpg", correct: 0 },
+  { q: "千葉県の県庁所在地は？", c: ["千葉市", "船橋市", "柏市"], img: "images/sample-3.jpg" , correct: 0 },
+  { q: "サッカーは1チーム何人？", c: ["11人", "9人", "7人"] , correct: 0 },
+  { q: "地球は何番目の惑星？", c: ["3番目", "2番目", "4番目"] , correct: 0 },
 ];
 
 // ページ切り替え
