@@ -15,7 +15,6 @@ body {
 button {
   padding: 12px 20px;
   font-size: 18px;
-  width: 100%;
   margin-top: 20px;
 }
 
@@ -52,6 +51,7 @@ button {
   padding: 12px;
   font-size: 18px;
   border-radius: 6px;
+  max-width: 48%;   /* 1つだけのときに巨大化しない */
 }
 
 
