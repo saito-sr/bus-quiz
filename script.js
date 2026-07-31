@@ -122,7 +122,8 @@ function finishQuiz() {
 
   // ★ 最終ページに表示
   document.getElementById("result-score").innerHTML =
-    `$<strong>{username}</strong> さんの正解数は ${score} / ${quiz.length} です`;
+  `<strong>${username}</strong> さんの正解数は ${score} / ${quiz.length} です`;
+
 
   // ★ スプレッドシートへ送信（必要なら残す）
   fetch(API_URL, {
