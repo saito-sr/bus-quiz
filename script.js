@@ -40,6 +40,14 @@ function showQuestion() {
 
   const choicesDiv = document.getElementById("choices");
   choicesDiv.innerHTML = "";
+
+  // ★ 画像を問題文の下に配置（ここを先に追加）
+  if (q.img) {
+    const img = document.createElement("img");
+    img.src = q.img;
+    img.classList.add("question-img");
+    choicesDiv.appendChild(img);
+  }
   
   // ★ 選択肢ボタン生成（色変更対応）
   q.c.forEach((choice, index) => {
@@ -55,14 +63,6 @@ function showQuestion() {
     btn.onclick = () => selectAnswer(index, btn);
     choicesDiv.appendChild(btn);
   });
-
-  // ★ 選択肢の下に画像を置く
-  if (q.img) {
-    const img = document.createElement("img");
-    img.src = q.img;
-    img.classList.add("question-img");
-    choicesDiv.appendChild(img);
-  }
   
   // ★ 前へ・次へボタンを追加
   const navDiv = document.createElement("div");
