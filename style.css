@@ -19,33 +19,30 @@ button {
   margin-top: 20px;
 }
 
-#choices button {
+/* 選択肢ボタンのデザイン */
+.choice-btn {
   display: block;
   width: 100%;
   margin: 10px 0;
   padding: 12px;
   font-size: 18px;
-}
-
-.option-btn {
-  display: block;
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  font-size: 16px;
   border-radius: 6px;
   border: 1px solid #ccc;
   background-color: #f2f2f2;
 }
 
-.option-btn.selected {
-  background-color: #4CAF50;   /* 選択時の色（緑） */
+/* 選択されたボタン */
+.choice-btn.selected {
+  background-color: #4CAF50;
   color: white;
   border-color: #4CAF50;
 }
 
+/* 前へ・次へボタン */
 .nav-btn {
-  padding: 10px 16px;
-  font-size: 16px;
-  margin: 10px 5px;
+  padding: 12px 20px;
+  font-size: 18px;
+  width: 48%;
+  margin-top: 20px;
 }
+
