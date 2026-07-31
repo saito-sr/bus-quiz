@@ -5,7 +5,7 @@ let username = "";
 let current = 0;
 let answers = [];
 
-// ★ 10～20問のクイズ（例）
+// ★ クイズデータ
 const quiz = [
   { q: "日本で一番高い山は？", c: ["富士山", "北岳", "槍ヶ岳"] },
   { q: "寿司ネタで使われる「マグロ」の英語は？", c: ["Tuna", "Salmon", "Mackerel"] },
@@ -27,8 +27,8 @@ function startQuiz() {
     return;
   }
 
-  current = 0;      // ★ 重要
-  answers = [];     // ★ 重要
+  current = 0;
+  answers = [];
 
   showPage("page-quiz");
   showQuestion();
@@ -41,48 +41,68 @@ function showQuestion() {
   const choicesDiv = document.getElementById("choices");
   choicesDiv.innerHTML = "";
 
+  // ★ 選択肢ボタン生成（色変更対応）
   q.c.forEach((choice, index) => {
     const btn = document.createElement("button");
     btn.innerText = choice;
-    btn.onclick = () => selectAnswer(index);
+    btn.classList.add("choice-btn");
+
+    // 過去に選択していたら色を戻す
+    if (answers[current] === index) {
+      btn.classList.add("selected");
+    }
+
+    btn.onclick = () => selectAnswer(index, btn);
     choicesDiv.appendChild(btn);
   });
 
-  document.getElementById("next-btn").disabled = true;
+  // ★ 前へ・次へボタンを追加
+  const navDiv = document.createElement("div");
+
+  // 前へボタン（1問目は非表示）
+  if (current > 0) {
+    const prevBtn = document.createElement("button");
+    prevBtn.innerText = "前へ";
+    prevBtn.classList.add("nav-btn");
+    prevBtn.onclick = prevQuestion;
+    navDiv.appendChild(prevBtn);
+  }
+
+  // 次へボタン
+  const nextBtn = document.createElement("button");
+  nextBtn.innerText = current === quiz.length - 1 ? "回答を送信" : "次へ";
+  nextBtn.classList.add("nav-btn");
+  nextBtn.onclick = nextQuestion;
+  navDiv.appendChild(nextBtn);
+
+  choicesDiv.appendChild(navDiv);
 }
 
-function selectAnswer(index) {
+function selectAnswer(index, btn) {
   answers[current] = index;
-  document.getElementById("next-btn").disabled = false;
+
+  // ★ 他のボタンの selected を外す
+  document.querySelectorAll(".choice-btn").forEach(b => b.classList.remove("selected"));
+
+  // ★ 選択したボタンだけ色を付ける
+  btn.classList.add("selected");
 }
 
 function nextQuestion() {
-  current++;
-
-  if (current >= quiz.length) {
+  if (current >= quiz.length - 1) {
     finishQuiz();
-  } else {
-    showQuestion();
-  }
-}
-
-function startQuiz() {
-  username = document.getElementById("username").value.trim();
-  if (!username) {
-    alert("名前を入力してください");
     return;
   }
+  current++;
+  showQuestion();
+}
 
-  current = 0;      // ★ 追加
-  answers = [];     // ★ 追加（重要）
-
-  showPage("page-quiz");
+function prevQuestion() {
+  current--;
   showQuestion();
 }
 
 function finishQuiz() {
-  console.log("finishQuiz called");  // ★追加
-
   showPage("page-finish");
 
   fetch(API_URL, {
@@ -93,3 +113,4 @@ function finishQuiz() {
     })
   });
 }
+
