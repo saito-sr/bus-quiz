@@ -96,13 +96,22 @@ function selectAnswer(index, btn) {
 }
 
 function nextQuestion() {
+  // ★ 未回答なら進ませない
+  if (answers[current] === undefined) {
+    alert("回答を選択してください");
+    return;
+  }
+
+  // ★ 最終問題なら終了ページへ
   if (current >= quiz.length - 1) {
     finishQuiz();
     return;
   }
+
   current++;
   showQuestion();
 }
+
 
 function prevQuestion() {
   current--;
