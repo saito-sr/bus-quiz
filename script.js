@@ -1,5 +1,5 @@
 // ★ Google Apps Script の Web API URL を貼る
-const API_URL = "https://script.google.com/macros/s/AKfycbwpieVXbsqP7-z0D8SR9DXU9oBSqchUM-zVeyT6kcA7QDcMiSRuKE_xiVXNkU_uZjVVag/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbxGM71atngYTxRYKr-zteNRDpbl4E0Kbkh_hZl5HLZ65Sd9-pzd2cGkRJFMF0jd_De4Ng/exec";
 
 let username = "";
 let current = 0;
@@ -140,7 +140,7 @@ function finishQuiz() {
     body: JSON.stringify({
       name: username,
       answers: answers,
-      score: score   // ← 正解数も送れる
+      score: score   // ← 正解数
     })
   });
 }
