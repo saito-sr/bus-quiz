@@ -68,14 +68,14 @@ function showQuestion() {
     prevBtn.onclick = prevQuestion;
     navDiv.appendChild(prevBtn);
   }
-
-  // 次へボタン
+  
+  // 次へボタン（常に右側）
   const nextBtn = document.createElement("button");
   nextBtn.innerText = current === quiz.length - 1 ? "回答を送信" : "次へ";
   nextBtn.classList.add("nav-btn");
   nextBtn.onclick = nextQuestion;
   navDiv.appendChild(nextBtn);
-
+  
   choicesDiv.appendChild(navDiv);
 }
 
