@@ -58,7 +58,8 @@ function showQuestion() {
 
   // ★ 前へ・次へボタンを追加
   const navDiv = document.createElement("div");
-
+  navDiv.classList.add("nav-container");
+  
   // 前へボタン（1問目は非表示）
   if (current > 0) {
     const prevBtn = document.createElement("button");
