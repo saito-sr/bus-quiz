@@ -38,11 +38,20 @@ button {
   border-color: #4CAF50;
 }
 
-/* 前へ・次へボタン */
-.nav-btn {
-  padding: 12px 20px;
-  font-size: 18px;
-  width: 48%;
+/* 前へ・次へボタンを横並びにする */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;        /* ボタン間の余白 */
   margin-top: 20px;
 }
+
+/* 前へ・次へボタンの共通デザイン */
+.nav-btn {
+  flex: 1;          /* 2つで幅100%になる */
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 6px;
+}
+
 
