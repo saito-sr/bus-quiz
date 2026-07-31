@@ -38,13 +38,10 @@ function showQuestion() {
   const q = quiz[current];
   document.getElementById("question-title").innerText = `Q${current + 1}. ${q.q}`;
 
-  const choicesDiv = document.getElementById("choices");
-  choicesDiv.innerHTML = "";
-
   const imageDiv = document.getElementById("question-image");
   const choicesDiv = document.getElementById("choices");
 
-  // ★ まず画像エリアを空にする
+  // ★ まず画像エリアと選択肢エリアを空にする
   imageDiv.innerHTML = "";
   choicesDiv.innerHTML = "";
 
@@ -55,7 +52,7 @@ function showQuestion() {
     img.classList.add("question-img");
     imageDiv.appendChild(img);
   }
-  
+
   // ★ 選択肢ボタン生成（色変更対応）
   q.c.forEach((choice, index) => {
     const btn = document.createElement("button");
@@ -70,6 +67,28 @@ function showQuestion() {
     btn.onclick = () => selectAnswer(index, btn);
     choicesDiv.appendChild(btn);
   });
+
+  // ★ 前へ・次へボタン
+  const navDiv = document.createElement("div");
+  navDiv.classList.add("nav-container");
+
+  if (current > 0) {
+    const prevBtn = document.createElement("button");
+    prevBtn.innerText = "前へ";
+    prevBtn.classList.add("nav-btn");
+    prevBtn.onclick = prevQuestion;
+    navDiv.appendChild(prevBtn);
+  }
+
+  const nextBtn = document.createElement("button");
+  nextBtn.innerText = current === quiz.length - 1 ? "回答を送信" : "次へ";
+  nextBtn.classList.add("nav-btn");
+  nextBtn.onclick = nextQuestion;
+  navDiv.appendChild(nextBtn);
+
+  choicesDiv.appendChild(navDiv);
+}
+
   
   // ★ 前へ・次へボタンを追加
   const navDiv = document.createElement("div");
