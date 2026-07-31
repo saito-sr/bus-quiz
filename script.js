@@ -41,12 +41,19 @@ function showQuestion() {
   const choicesDiv = document.getElementById("choices");
   choicesDiv.innerHTML = "";
 
-  // ★ 画像を問題文の下に配置（ここを先に追加）
+  const imageDiv = document.getElementById("question-image");
+  const choicesDiv = document.getElementById("choices");
+
+  // ★ まず画像エリアを空にする
+  imageDiv.innerHTML = "";
+  choicesDiv.innerHTML = "";
+
+  // ★ 画像を問題文の下に追加
   if (q.img) {
     const img = document.createElement("img");
     img.src = q.img;
     img.classList.add("question-img");
-    choicesDiv.appendChild(img);
+    imageDiv.appendChild(img);
   }
   
   // ★ 選択肢ボタン生成（色変更対応）
