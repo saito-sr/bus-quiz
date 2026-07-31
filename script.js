@@ -41,6 +41,13 @@ function showQuestion() {
   const choicesDiv = document.getElementById("choices");
   choicesDiv.innerHTML = "";
 
+  if (q.img) {
+    const img = document.createElement("img");
+    img.src = q.img;
+    img.classList.add("question-img");
+    choicesDiv.appendChild(img);
+  }
+  
   // ★ 選択肢ボタン生成（色変更対応）
   q.c.forEach((choice, index) => {
     const btn = document.createElement("button");
