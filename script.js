@@ -112,11 +112,26 @@ function prevQuestion() {
 function finishQuiz() {
   showPage("page-finish");
 
+  // ★ 正解数を計算
+  let score = 0;
+  quiz.forEach((q, index) => {
+    if (answers[index] === q.correct) {
+      score++;
+    }
+  });
+
+  // ★ 最終ページに表示
+  document.getElementById("result-score").innerText =
+    `${username}さんの正解数は ${score} / ${quiz.length} です`;
+
+  // ★ スプレッドシートへ送信（必要なら残す）
   fetch(API_URL, {
     method: "POST",
     body: JSON.stringify({
       name: username,
-      answers: answers
+      answers: answers,
+      score: score   // ← 正解数も送れる
     })
   });
 }
+
