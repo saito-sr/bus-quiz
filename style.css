@@ -40,7 +40,7 @@ button {
 /* 前へ・次へボタンを横並びにする */
 .nav-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 10px;        /* ボタン間の余白 */
   margin-top: 20px;
 }
