@@ -53,6 +53,20 @@ function showQuestion() {
     imageDiv.appendChild(img);
   }
 
+if (imageDiv && q.img) {
+  const img = document.createElement("img");
+  img.src = q.img;
+  img.classList.add("question-img");
+
+  // ★ 問題ごとに画像サイズを変更
+  if (q.size) {
+    img.style.maxWidth = q.size + "px";
+  }
+
+  imageDiv.appendChild(img);
+}
+
+  
   // ★ 選択肢ボタン生成（色変更対応）
   q.c.forEach((choice, index) => {
     const btn = document.createElement("button");
