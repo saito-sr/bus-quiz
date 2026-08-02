@@ -58,7 +58,7 @@ button {
   width: 100%;
   max-width: 350px;
   height:auto;
-  clip-path: circle(42%);
+  clip-path: circle(40%);
   display: block;
   margin: 20px auto;   /* 問題文との間に余白を作る */
   border-radius: 8px;
