@@ -36,24 +36,31 @@ function startQuiz() {
 
 function showQuestion() {
   const q = quiz[current];
+
+  // タイトル
   document.getElementById("question-title").innerText = `Q${current + 1}. ${q.q}`;
 
+  // 画像エリア
   const imageDiv = document.getElementById("question-image");
-  const choicesDiv = document.getElementById("choices");
+  imageDiv.innerHTML = "";   // ← 前の画像を消す（重要）
 
-  // ★ まず画像エリアと選択肢エリアを空にする
-  imageDiv.innerHTML = "";
-  choicesDiv.innerHTML = "";
-
-  // ★ 画像を問題文の下に追加
   if (q.img) {
     const img = document.createElement("img");
     img.src = q.img;
     img.classList.add("question-img");
+
+    // 問題ごとのサイズ指定（任意）
+    if (q.size) {
+      img.style.maxWidth = q.size + "px";
+    }
+
     imageDiv.appendChild(img);
   }
 
-    // ★ 選択肢ボタン生成（色変更対応）
+  // 選択肢エリア
+  const choicesDiv = document.getElementById("choices");
+  choicesDiv.innerHTML = "";  // ← 前の選択肢を消す
+
   q.c.forEach((choice, index) => {
     const btn = document.createElement("button");
     btn.innerText = choice;
@@ -67,7 +74,7 @@ function showQuestion() {
     choicesDiv.appendChild(btn);
   });
 
-  // ★ 前へ・次へボタン
+  // ナビゲーション（前へ・次へ）
   const navDiv = document.createElement("div");
   navDiv.classList.add("nav-container");
 
