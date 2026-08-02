@@ -60,7 +60,7 @@ button {
   height:auto;
   clip-path: circle(50%);
   display: block;
-  margin: 0 auto 20px;   /* 問題文との間に余白を作る */
+  margin: 20px auto;   /* 問題文との間に余白を作る */
   border-radius: 8px;
 }
 
