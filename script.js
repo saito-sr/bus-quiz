@@ -136,10 +136,22 @@ function finishQuiz() {
     }
   });
 
-  // ★ 最終ページに表示
-  document.getElementById("result-score").innerHTML =
-  `<strong>${username}</strong> さんの正解数は ${score} / ${quiz.length} です`;
+  // ★ スコア表示
+  document.getElementById("result-score").innerText =
+    `${username}さんの正解数は ${score} / ${quiz.length} です`;
 
+  // ★ 回答一覧を生成
+  const summaryDiv = document.getElementById("answer-summary");
+  summaryDiv.innerHTML = ""; // 初期化
+
+  quiz.forEach((q, index) => {
+    const userAnswerIndex = answers[index];
+    const userAnswerText = userAnswerIndex !== undefined ? q.c[userAnswerIndex] : "未回答";
+
+    const p = document.createElement("p");
+    p.innerHTML = `Q${index + 1}. ${q.q}<br>あなたの回答: ${userAnswerText}`;
+    summaryDiv.appendChild(p);
+  });
 
   // ★ スプレッドシートへ送信（必要なら残す）
   fetch(API_URL, {
@@ -147,8 +159,9 @@ function finishQuiz() {
     body: JSON.stringify({
       name: username,
       answers: answers,
-      score: score   // ← 正解数
+      score: score
     })
   });
 }
+
 
