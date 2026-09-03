@@ -158,7 +158,7 @@ function finishQuiz() {
     method: "POST",
     body: JSON.stringify({
       name: username,
-      answers: answers,
+      answers: [...answers],
       score: score
     })
   });
