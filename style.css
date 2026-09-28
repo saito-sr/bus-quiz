@@ -28,6 +28,7 @@ button {
   border-radius: 6px;
   border: 1px solid #ccc;
   background-color: #f2f2f2;
+  text-align: left;
 }
 
 /* 選択されたボタン */
@@ -41,26 +42,63 @@ button {
 .nav-container {
   display: flex;
   justify-content: flex-end;
-  gap: 10px;        /* ボタン間の余白 */
+  gap: 10px;
   margin-top: 20px;
 }
 
 /* 前へ・次へボタンの共通デザイン */
 .nav-btn {
-  flex: 1;          /* 2つで幅100%になる */
+  flex: 1;
   padding: 12px;
   font-size: 18px;
   border-radius: 6px;
-  max-width: 48%;   /* 1つだけのときに巨大化しない */
+  max-width: 48%;
 }
 
 .question-img {
   width: 100%;
   max-width: 350px;
-  height:auto;
+  height: auto;
   clip-path: circle(40%);
   display: block;
-  margin: 20px auto;   /* 問題文との間に余白を作る */
+  margin: 20px auto;
   border-radius: 8px;
 }
 
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.image-choice {
+  width: 100%;
+  aspect-ratio: 1 / 1;   /* 正方形にする */
+  object-fit: cover;     /* 中央を基準にトリミング */
+  border-radius: 6px;
+  cursor: pointer;
+  border: 3px solid transparent;
+}
+
+.image-choice.selected {
+  border-color: #4CAF50;
+}
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.image-label {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 16px;
+  z-index: 10;
+}
