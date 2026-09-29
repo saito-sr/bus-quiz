@@ -273,7 +273,7 @@ function finishQuiz() {
     }
   });
 
-  document.getElementById("result-score").innerText =
+  document.getElementById("result-score").innerHTML =
     `<strong>${username} さんの正解数は ${score} / ${quiz.length} です</strong>`;
 
   const summaryDiv = document.getElementById("answer-summary");
