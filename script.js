@@ -274,7 +274,7 @@ function finishQuiz() {
   });
 
   document.getElementById("result-score").innerText =
-    `${username}さんの正解数は ${score} / ${quiz.length} です`;
+    `<strong>${username} さんの正解数は ${score} / ${quiz.length} です</strong>`;
 
   const summaryDiv = document.getElementById("answer-summary");
   summaryDiv.innerHTML = "";
@@ -308,7 +308,7 @@ function finishQuiz() {
     const p = document.createElement("p");
     p.innerHTML =
       `Q${index + 1}. ${q.q}<br><br>` +
-      `<strong>${username}さんの回答: ${userAnswerText}</strong>`;
+      `<strong>${username} さんの回答: ${userAnswerText}</strong>`;
 
     summaryDiv.appendChild(p);
   });
