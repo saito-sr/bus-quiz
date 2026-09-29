@@ -308,7 +308,7 @@ function finishQuiz() {
     const p = document.createElement("p");
     p.innerHTML =
       `Q${index + 1}. ${q.q}<br><br>` +
-      `<strong>あなたの回答: ${userAnswerText}</strong>`;
+      `<strong>${username}さんの回答: ${userAnswerText}</strong>`;
 
     summaryDiv.appendChild(p);
   });
