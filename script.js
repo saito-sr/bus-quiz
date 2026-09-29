@@ -274,7 +274,8 @@ function finishQuiz() {
   });
 
   document.getElementById("result-score").innerHTML =
-    `<strong>${username} さんの正解数は ${score} / ${quiz.length} です</strong>`;
+    '<span style="color:red;"><strong>' +
+  `${username} さんの正解数は ${score} / ${quiz.length} です` + '</strong></span>';
 
   const summaryDiv = document.getElementById("answer-summary");
   summaryDiv.innerHTML = "";
